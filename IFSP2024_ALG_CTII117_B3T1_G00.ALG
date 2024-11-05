@@ -110,39 +110,24 @@ und[10] <- "und"
 und[11] <- "und"
 und[12] <- "und"
 
-//Cálculo do saldo de estoque
-//saldoEstoque[1]  <- preco[1] * quant[1]
-//saldoEstoque[2]  <- preco[2] * quant[2]
-//saldoEstoque[3]  <- preco[3] * quant[3]
-//saldoEstoque[4]  <- preco[4] * quant[4]
-//saldoEstoque[5]  <- preco[5] * quant[5]
-//saldoEstoque[6]  <- preco[6] * quant[6]
-//saldoEstoque[7]  <- preco[7] * quant[7]
-//saldoEstoque[8]  <- preco[8] * quant[8]
-//saldoEstoque[9]  <- preco[9] * quant[9]
-//saldoEstoque[10] <- preco[10] * quant[10]
-//saldoEstoque[11] <- preco[11] * quant[11]
-//saldoEstoque[12] <- preco[12] * quant[12]
 
-//totalEstoque <- (( preco1 * quant1)+( preco2 * quant2)+( preco3 * quant3)+( preco4 * quant4)+( preco5 * quant5)+( preco6 * quant6)+( preco7 * quant7)+( preco8 * quant8)+( preco9 * quant9)+( preco10 * quant10)+( preco11 * quant11)+( preco12 * quant12))
-
-//escreval ("-----------------------------------------------------------------")
-//escreval ("|    Código     |     descrição     | Preço (R$)| Quant.Estoque |")
-//escreval ("-----------------------------------------------------------------")
+escreval ("-----------------------------------------------------------------")
+escreval ("|    Código     |     descrição     | Preço (R$)| Quant.Estoque |")
+escreval ("-----------------------------------------------------------------")
 
 para ind de 1 ate 12 faca
 
-   //   escrevaL("| ", codigoProd[ind]:13," | ",desc[ind]:17," | R$ ",preco[ind]:6:2," |  ", quant[ind]:5:2, " ", und[ind]:6," |")
+   escrevaL("| ", codigoProd[ind]:13," | ",desc[ind]:17," | R$ ",preco[ind]:6:2," |  ", quant[ind]:5:2, " ", und[ind]:6," |")
    totalEstoque <- totalEstoque + (preco[ind] * quant[ind])
 fimpara
-//escreval("-----------------------------------------------------------------")
-//escreval ("|                           Valor total do estoque: R$ ",totalEstoque:8:2," |")
-//escreval("-----------------------------------------------------------------")
+escreval("-----------------------------------------------------------------")
+escreval("|                           Valor total do estoque: R$ ",totalEstoque:8:2," |")
+escreval("-----------------------------------------------------------------")
 
-//escreval
-//escreval(" Aperte F9 para continuar...")
-//pausa
-//limpatela
+escreval
+escreval(" Aperte F9 para continuar...")
+pausa
+limpatela
 
 
 
@@ -188,8 +173,12 @@ repita
 ate (codigoInfo = "fim")
 
 limpatela
+
+//parte que falta - CUPOM FISCAL
 escreval ("=======================================================================")
 escreval ("| Supermercado IFSP Cubatão - onde seu conhecimento cresce um montão  |")
+escreval ("=======================================================================")
+
 
 //   escreval ("-------------------------------------------------------------------------------")
 //  escreval ("|                                             Valor total da compra: R$",valorTotalCompra:6:2," |")
