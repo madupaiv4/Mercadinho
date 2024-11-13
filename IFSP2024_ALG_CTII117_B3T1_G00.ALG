@@ -54,7 +54,7 @@ Inicio
    desc[12] <- "Lanche"
 
    //Preço dos produtos
-   preco[1]  <- 3.0
+   preco[1]  <- 3.00
    preco[2]  <- 3.70
    preco[3]  <- 4.50
    preco[4]  <- 3.20
@@ -166,10 +166,11 @@ limpatela
 escreval ("=======================================================================")
 escreval ("| Supermercado IFSP Cubatão - onde seu conhecimento cresce um montão  |")
 escreval ("=======================================================================")
-
-indProd <- itemCupomCodProd[]
+enquanto indC - 1 <> 0 faca
+ind <- ind + 1
+indProd <- itemCupomCodProd[ind]
 escreval("| item ", ind:3,":", codigoProd[indProd], "-", desc[indProd], "  ", itemCupomQuant[ind], "x". preco[indProd], " = ", itemCupomQuant[ind] * preco[ind])
-
+fimenquanto
 
 
 
