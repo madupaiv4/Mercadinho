@@ -22,26 +22,11 @@ Var
    produtoExiste: Logico
 
    ind, IndC : inteiro
-Inicio
-   // Seção de Comandos, procedimento, funções, operadores, etc...
-MudaCor("Preto","FRENTE")
-MudaCor("Branco","FUNDOS" )
-{
-// precoProd:        real
-//valorTotalCompra: real
-
-//descricaoprod: caracter
-// codigoProd:    caracter
-//undProd:       caracter
-
-//quantProd:    real
-//quantInfo :   real
-//
-
-}
-
-//Código dos produtos
-codigoProd[1]  <- "7891025101604"
+   
+   procedimento input
+   
+   Inicio
+    codigoProd[1]  <- "7891025101604"
 codigoProd[2]  <- "7891000120101"
 codigoProd[3]  <- "7891000100103"
 codigoProd[4]  <- "7891000105016"
@@ -110,8 +95,11 @@ und[10] <- "und"
 und[11] <- "und"
 und[12] <- "und"
 
-
-escreval ("-----------------------------------------------------------------")
+   fimprocedimento
+   
+   procedimento impressão
+   Inicio
+   escreval ("-----------------------------------------------------------------")
 escreval ("|    Código     |     descrição     | Preço (R$)| Quant.Estoque |")
 escreval ("-----------------------------------------------------------------")
 
@@ -128,14 +116,14 @@ escreval
 escreval(" Aperte F9 para continuar...")
 pausa
 limpatela
+   fimprocedimento
+Inicio
+   // Seção de Comandos, procedimento, funções, operadores, etc...
+MudaCor("Preto","FRENTE")
+MudaCor("Branco","FUNDOS" )
 
-
-
-
-
-
-
-
+input
+impressão
 
 
 indC <- 0
@@ -179,6 +167,7 @@ escreval ("=====================================================================
 escreval ("| Supermercado IFSP Cubatão - onde seu conhecimento cresce um montão  |")
 escreval ("=======================================================================")
 
+escreval("| item ", ind:3,"|")
 
 //   escreval ("-------------------------------------------------------------------------------")
 //  escreval ("|                                             Valor total da compra: R$",valorTotalCompra:6:2," |")
