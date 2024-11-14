@@ -14,10 +14,10 @@ Var
    codigoProd, desc ,und: vetor [1..12] de caractere
    saldoEstoque, quant, preco : vetor [1..12] de real
 
-   itemCupomCodProd : vetor [1..20] de inteiro
-   itemCupomQuant : vetor[1..20] de real
+   itemCupomCodProd : vetor [1..21] de inteiro
+   itemCupomQuant : vetor[1..21] de real
 
-   totalEstoque:     real
+   totalEstoque, totalCompra:     real
    codigoInfo: caractere
 
 
@@ -98,7 +98,9 @@ Inicio
 fimprocedimento
 
 procedimento impressao
+
 Inicio
+
    escreval ("-----------------------------------------------------------------")
    escreval ("|    Código     |     descrição     | Preço (R$)| Quant.Estoque |")
    escreval ("-----------------------------------------------------------------")
@@ -107,81 +109,98 @@ Inicio
 
       escrevaL("| ", codigoProd[ind]:13," | ",desc[ind]:17," | R$ ",preco[ind]:6:2," |  ", quant[ind]:5:2, " ", und[ind]:6," |")
       totalEstoque <- totalEstoque + (preco[ind] * quant[ind])
+
    fimpara
+
    escreval("-----------------------------------------------------------------")
    escreval("|                           Valor total do estoque: R$ ",totalEstoque:8:2," |")
    escreval("-----------------------------------------------------------------")
-
    escreval
    escreval(" Aperte F9 para continuar...")
+
    pausa
    limpatela
+
 fimprocedimento
+
+
 Inicio
+
    // Seção de Comandos, procedimento, funções, operadores, etc...
+
 MudaCor("Preto","FRENTE")
 MudaCor("Branco","FUNDOS" )
 
 input
-impressao
+//impressao
 
+// Leitura/Verificação do código informado
 
-indC <- 0
 repita
    escreval(" ")
    escreva ("Informe o código do produto desejado: ")
    leia (codigoInfo)
    escreval(" ")
-   indC<- indC + 1
-   ind <- 1
+
    se codigoInfo <> "fim" entao
+      indC<- indC + 1
+      ind <- 1
 
       // Armazenando índice do valor encontrado
       enquanto (ind <> 0) e (itemCupomCodProd[indC] = 0) faca
          se (codigoProd[ind] = codigoInfo ) entao
             itemCupomCodProd[indC] <- ind
          fimse
-         ind <- (ind + 1) % 12
+         ind <- (ind + 1) % 13
       fimenquanto
 
       se (itemCupomCodProd[indC] = 0) entao
          //Mensagem de erro
-         escreva ("Produto ", codigoInfo:13, " não foi encontrado!")
+          indC <- indC - 1
+         escreva ("Produto ", codigoInfo:13, " não foi encontrado! Digite novamente... ")
          escreval(" ")
-         limpatela
+
       senao
          // Input quantidade
          escreva ("Informe a quantidade desejada desse produto: ")
          leia (itemCupomQuant[indC])
+         limpatela
       fimse
    fimse
 
-
-
 ate (codigoInfo = "fim")
-
 limpatela
 
-//parte que falta - CUPOM FISCAL
-escreval ("=======================================================================")
-escreval ("| Supermercado IFSP Cubatão - onde seu conhecimento cresce um montão  |")
-escreval ("=======================================================================")
-enquanto indC - 1 <> 0 faca
-ind <- ind + 1
-indProd <- itemCupomCodProd[ind]
-escreval("| item ", ind:3,":", codigoProd[indProd], "-", desc[indProd], "  ", itemCupomQuant[ind], "x". preco[indProd], " = ", itemCupomQuant[ind] * preco[ind])
+
+
+//CUPOM FISCAL
+
+escreval ("========================================================================")
+escreval ("| Supermercado IFSP Cubatão - onde seu conhecimento cresce um montão   |")
+escreval ("========================================================================")
+
+ind <- 0
+enquanto indC <> 0 faca
+
+   ind <- ind + 1
+   indProd <- itemCupomCodProd[ind]
+
+   se (indProd <> 0) E (ind <= 20) ENTAO
+      escreval("| item ", ind:2 ," : ", codigoProd[indProd]:13, " - ", desc[indProd]:17,  itemCupomQuant[ind]:6:2, "  x ", preco[indProd]:6:2 , " = ", (itemCupomQuant[ind] * preco[ind]):6:2, " |")
+      totalCompra <- totalCompra + (itemCupomQuant[ind] * preco[ind])
+   fimse
+
+   indC <- indC - 1
+
 fimenquanto
 
 
+escreval ("========================================================================")
+escreval ("| Total de itens :", ind:3, "":16, " Valor total dos itens: ", "R$", TotalCompra:7:2," |")
+escreval ("========================================================================")
 
 
 
-
-
-
-//   escreval ("-------------------------------------------------------------------------------")
-//  escreval ("|                                             Valor total da compra: R$",valorTotalCompra:6:2," |")
-//  escreval ("-------------------------------------------------------------------------------")
 
 
 
